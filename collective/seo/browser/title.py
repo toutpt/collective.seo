@@ -4,6 +4,8 @@ from plone.app.layout.viewlets import common
 
 from collective.seo import interfaces
 
+from Products.CMFPlone.utils import safe_unicode
+
 class TitleViewlet(common.TitleViewlet):
     """Override the default Plone viewlet"""
 

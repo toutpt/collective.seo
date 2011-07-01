@@ -22,9 +22,9 @@ class ZopeAnnotation(object):
         annotation = self.getAnnotation()
         if STORAGE_KEY not in annotation.keys():
             return default
-        
+
         storage = annotation[STORAGE_KEY]
-        value = storage.get(tag, None)
+        value = storage.get(tag, default)
         return value
 
     def getAnnotation(self):
@@ -33,11 +33,22 @@ class ZopeAnnotation(object):
             self.annotation = IAnnotations(self.context)
         return self.annotation
 
+    def getAll(self):
+        annotation = self.getAnnotation()
+        if STORAGE_KEY not in annotation:
+            return {}
+        
+        return annotation[STORAGE_KEY] #MAY TODO: make a volatile copy ?
+
     def set(self, tag, value):
         annotation = self.getAnnotation()
-        defaults = self.get_defaults()
 
         if STORAGE_KEY not in annotation:
             annotation[STORAGE_KEY] = PersistentDict()
         
         annotation[STORAGE_KEY][tag] = value
+
+    def setAll(self, seo):
+        for key in seo.keys():
+            if seo[key]: #can be empty:
+                self.set(key, seo[key])

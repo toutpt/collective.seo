@@ -20,8 +20,8 @@
         />
 
     <browser:page
+        name="collective.seo.form"
         for="*"
-        name="collective.seo.settings"
         class=".settings.SEOSettingsFormWrapper"
         permission="zope2.View"
         layer="collective.seo.interfaces.ICollectiveSEOLayer"
