@@ -5,7 +5,7 @@ version = '1.0dev'
 
 setup(name='collective.seo',
       version=version,
-      description="SEO add-on let you customize some html header content",
+      description="SEO add-on let you set values of some html header tags.",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
@@ -17,7 +17,7 @@ setup(name='collective.seo',
       keywords='',
       author='JeanMichel FRANCOIS aka toutpt',
       author_email='toutpt@gmail.com',
-      url='http://svn.plone.org/svn/collective/',
+      url='https://github.com/collective/collective.seo',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective'],
@@ -33,6 +33,4 @@ setup(name='collective.seo',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],
       )
